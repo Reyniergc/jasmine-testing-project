@@ -84,16 +84,22 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-		  
-		  //https://stackoverflow.com/questions/16890618/test-for-click-event-using-jasmine-test-suite
-		  
-		/*it('does the menu display when clicked', function() {
-			expect(menuClass).toEqual("menu-hidden");
-		});*/
+
+		beforeEach(function() {
+			this.menu = $(".menu-icon-link");
+		});
+
+		it('does the menu display when clicked', function() {
+			this.menu.trigger("click");
+			const classValue = document.getElementsByTagName("body")[0].getAttribute("class");
+			expect(classValue.length).toBe(0);
+		});
 		
-		/*it('does the menu hide when clicked again', function() {
-			expect(menuClass).toEqual("menu-hidden");
-		});*/
+		it('does the menu hide when clicked again', function() {
+			this.menu.trigger("click");
+			const classValue = document.getElementsByTagName("body")[0].getAttribute("class");
+			expect(classValue).toEqual("menu-hidden");
+		});
 	});
 	
     /* TODO: Write a new test suite named "Initial Entries" */
