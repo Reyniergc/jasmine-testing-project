@@ -63,7 +63,7 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
+    /* DONE: Write a new test suite named "The menu" */
 	describe('The menu', function() {
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
@@ -79,7 +79,7 @@ $(function() {
 			expect(menuClass).toEqual("menu-hidden");
 		});
 
-         /* TODO: Write a test that ensures the menu changes
+         /* DONE: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
@@ -119,16 +119,28 @@ $(function() {
 		});
 
 		it('there is at least a single element within the feed container', function(done) {
-			const classFeed = document.getElementsByClassName("entry-link");
-			expect(classFeed.length).toBeGreaterThan(0);
+			const classEntryLink = document.getElementsByClassName("entry-link");
+			expect(classEntryLink.length).toBeGreaterThan(0);
 			done();
 		});
 	});
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
-
-        /* TODO: Write a test that ensures when a new feed is loaded
+	/* DONE: Write a new test suite named "New Feed Selection" */
+	/*describe('New Feed Selection', function() {
+		/* DONE: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
-         */
+
+		beforeEach(function(done) {
+			loadFeed();
+			done();
+		});
+
+		it('when a new feed is loaded by the loadFeed function that the content actually changes', function(done) {
+			const list = document.getElementsByClassName("entry-link").hasChildNodes();
+			const list = document.getElementsByTagName("ul").item(0).innerHTML
+			expect(list.length).toBeGreaterThan(0);
+			done();
+		});
+	});*/
 }());
