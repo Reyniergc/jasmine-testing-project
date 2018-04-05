@@ -102,14 +102,28 @@ $(function() {
 		});
 	});
 	
-    /* TODO: Write a new test suite named "Initial Entries" */
-
-        /* TODO: Write a test that ensures when the loadFeed
+	/* DONE: Write a new test suite named "Initial Entries" */
+	describe('Initial Entries', function() {
+		/* DONE: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+		 */
+
+		beforeEach(function(done) {
+			setTimeout(function() {
+				loadFeed(0);
+				done();
+			}, 2000);
+		});
+
+		it('there is at least a single element within the feed container', function(done) {
+			const classFeed = document.getElementsByClassName("entry-link");
+			expect(classFeed.length).toBeGreaterThan(0);
+			done();
+		});
+	});
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
