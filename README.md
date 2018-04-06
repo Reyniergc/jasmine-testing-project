@@ -10,8 +10,6 @@ jasmine\spec\feedreader.js. Also we can find all the files of the Jasmine framew
 To run the aplication the only thing we need to do is execute the file **index.html** inside the current project. 
 If all the testings pass Jasmine will show messages of the tests in a green color otherwise in red color.
 
-**TESTS PERFORMED:**
-
 **LINK JASMINE OFFICIAL DOCUMENTATION:**
 
 [Jasmine Official Site](https://jasmine.github.io/index.html)
