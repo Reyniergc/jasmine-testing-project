@@ -12,4 +12,4 @@ And to run the aplication the only thing we need to do is execute the file **ind
 
 **LINK JASMINE OFFICIAL DOCUMENTATION:**
 
-[Play Now!!!](https://jasmine.github.io/index.html)
+[Jasmine Official Site](https://jasmine.github.io/index.html)
