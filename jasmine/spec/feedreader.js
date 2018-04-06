@@ -110,27 +110,26 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
 		 */
+		let classEntryLink = null;
 
 		beforeEach(function(done) {
-			setTimeout(function() {
-				loadFeed(0);
+			loadFeed(0, function() {
+				classEntryLink = document.getElementsByClassName("entry-link");
 				done();
-			}, 2000);
+			});
 		});
 
 		it('there is at least a single element within the feed container', function(done) {
-			const classEntryLink = document.getElementsByClassName("entry-link");
 			expect(classEntryLink.length).toBeGreaterThan(0);
 			done();
 		});
 	});
 
 	/* DONE: Write a new test suite named "New Feed Selection" */
-	describe('New Feed Selection', function() {
+	/*describe('New Feed Selection', function() {
 		/* DONE: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
-		 */
 
 		beforeEach(function(done) {
 			setTimeout(function() {
@@ -144,5 +143,5 @@ $(function() {
 			expect(classEntryLink.length).toBe(10);
 			done();
 		});
-	});
+	});*/
 }());
