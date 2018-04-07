@@ -91,14 +91,16 @@ $(function() {
 
 		it('does the menu display when clicked', function() {
 			this.menu.trigger("click");
-			const classValue = document.getElementsByTagName("body")[0].getAttribute("class");
-			expect(classValue.length).toBe(0);
+			//const classValue = document.getElementsByTagName("body")[0].getAttribute("class");
+			//expect(classValue.length).toBe(0);
+			expect($('body').hasClass('menu-hidden')).toBe(false);
 		});
 		
 		it('does the menu hide when clicked again', function() {
 			this.menu.trigger("click");
-			const classValue = document.getElementsByTagName("body")[0].getAttribute("class");
-			expect(classValue).toEqual("menu-hidden");
+			//const classValue = document.getElementsByTagName("body")[0].getAttribute("class");
+			//expect(classValue).toEqual("menu-hidden");
+			expect($('body').hasClass('menu-hidden')).toBe(true);
 		});
 	});
 	
@@ -114,7 +116,7 @@ $(function() {
 
 		beforeEach(function(done) {
 			loadFeed(0, function() {
-				classEntryLink = document.getElementsByClassName("entry-link");
+				classEntryLink = document.querySelector(".feed").children;
 				done();
 			});
 		});
