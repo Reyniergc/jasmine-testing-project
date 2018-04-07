@@ -70,13 +70,9 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-		let menuClass;
-		beforeEach(function() {
-			menuClass = document.getElementsByTagName("body")[0].getAttribute("class");
-		});
 
 		it('veryfication that the menu is hidden by default', function() {
-			expect(menuClass).toEqual("menu-hidden");
+			expect($('body').hasClass('menu-hidden')).toBe(true);
 		});
 
          /* DONE: Write a test that ensures the menu changes
@@ -91,15 +87,11 @@ $(function() {
 
 		it('does the menu display when clicked', function() {
 			this.menu.trigger("click");
-			//const classValue = document.getElementsByTagName("body")[0].getAttribute("class");
-			//expect(classValue.length).toBe(0);
 			expect($('body').hasClass('menu-hidden')).toBe(false);
 		});
 		
 		it('does the menu hide when clicked again', function() {
 			this.menu.trigger("click");
-			//const classValue = document.getElementsByTagName("body")[0].getAttribute("class");
-			//expect(classValue).toEqual("menu-hidden");
 			expect($('body').hasClass('menu-hidden')).toBe(true);
 		});
 	});
@@ -113,16 +105,24 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
 		 */
 		let classEntryLink = null;
+		let oneEntryLink = false;
 
 		beforeEach(function(done) {
 			loadFeed(0, function() {
 				classEntryLink = document.querySelector(".feed").children;
+
+				for (let index = 0; index < classEntryLink.length; index++) {
+					if (classEntryLink[index].className === "entry-link") {
+						oneEntryLink = true;
+						break;
+					}
+				}
 				done();
 			});
 		});
 
 		it('there is at least a single element within the feed container', function(done) {
-			expect(classEntryLink.length).toBeGreaterThan(0);
+			expect(oneEntryLink).toBe(true);
 			done();
 		});
 	});
