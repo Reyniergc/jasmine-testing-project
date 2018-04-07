@@ -139,7 +139,7 @@ $(function() {
 			loadFeed(0, function() {
 				oldFeedHtml = document.querySelector(".feed").innerHTML;
 				loadFeed(1, function() {
-					newFeedHtml = document.getElementsByClassName("feed");
+					newFeedHtml = document.querySelector(".feed").innerHTML;
 					done();
 				});
 			});
